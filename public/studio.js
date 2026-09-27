@@ -17,10 +17,6 @@ function updateQR(){
  qr.src=`https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(u)}`;
  const n=document.getElementById("qrNote");
  if(n)n.textContent=secure?"🔒 QR พร้อมใช้งานผ่าน HTTPS":"⚠️ Studio เป็น HTTP — ใช้ HTTPS เพื่อเปิดกล้องมือถือ";
-}/camera.html?room=${encodeURIComponent(room)}`;
- qr.src=`https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(u)}`;
- const qrUrl=document.getElementById("qrUrl");
- if(qrUrl)qrUrl.textContent=u;
 }
 function register(){socket.emit("register",{role:"studio",room});updateQR();}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));}
