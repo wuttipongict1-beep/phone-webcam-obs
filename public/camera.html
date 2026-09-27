@@ -1,0 +1,17 @@
+<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Phone Webcam Camera</title><link rel="stylesheet" href="/style.css"></head><body>
+<div class="topbar"><b>Phone Webcam</b><span id="status" class="badge offline">OFFLINE</span></div>
+<main class="camera-page"><section class="card"><h2>Camera Setup</h2><label>ชื่อกล้อง</label><input id="cameraName" value="CAM 01">
+<label>Room / Pair Code</label><input id="room" value="STUDIO"><div class="row"><div><label>ความละเอียด</label><select id="resolution"><option value="720">720p</option><option value="1080" selected>1080p</option><option value="2160">4K</option></select></div><div><label>FPS</label><select id="fps"><option>24</option><option selected>30</option><option>60</option></select></div></div>
+<button id="connect" class="button primary">เชื่อมต่อกล้อง</button><button id="switch" class="button">สลับกล้องหน้า / หลัง</button><p id="secureNotice" class="notice">กำลังตรวจสอบความปลอดภัยของการเชื่อมต่อ...</p><p class="notice">🔇 Video only — ไม่มีการเปิดหรือส่งไมโครโฟน</p></section>
+<section class="preview card"><div class="preview-head"><b id="previewTitle">CAM 01</b><span id="quality">ยังไม่เปิดกล้อง</span></div><video id="preview" autoplay muted playsinline></video></section></main>
+<script src="/socket.io/socket.io.js"></script><script>
+(function(){
+ const n=document.getElementById("secureNotice");
+ if(window.isSecureContext && navigator.mediaDevices && typeof navigator.mediaDevices.getUserMedia==="function"){
+  n.textContent="🔒 HTTPS / Secure Context พร้อมใช้งานกล้อง"; n.className="notice secure-ok";
+ }else{
+  n.textContent="⚠️ ต้องเปิดผ่าน HTTPS จึงจะใช้งานกล้องบนมือถือได้"; n.className="notice secure-warn";
+ }
+})();
+</script>
+<script src="/camera.js"></script></body></html>

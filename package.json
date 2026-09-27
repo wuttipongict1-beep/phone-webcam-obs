@@ -1,0 +1,15 @@
+{
+  "name": "phone-webcam-obs",
+  "version": "0.3.3",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "setup:https": "node setup-https.js",
+    "start:https": "node https-server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "selfsigned": "^2.4.1",
+    "socket.io": "^4.8.1"
+  }
+}
