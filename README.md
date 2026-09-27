@@ -32,6 +32,10 @@ Health:
 OBS Browser Source:
 `https://10.25.1.150:3443/studio.html?room=STUDIO`
 
+For a video-only OBS Browser Source, use `/obs.html?room=STUDIO` instead.
+It automatically connects to the first active camera in the room. To select a
+camera by name, add `&camera=CAM%2001`; use `&fit=cover` to fill the source frame.
+
 หมายเหตุ: QR image ยังใช้บริการ QR ภายนอก แต่ URL ที่อยู่ภายใน QR เป็น HTTPS เมื่อ Studio เปิดผ่าน HTTPS
 
 ## Deploy online (Render)

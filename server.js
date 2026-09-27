@@ -78,8 +78,8 @@ function makeIo(server){
           id:socket.id,name:cameraName||`CAM-${socket.id.slice(0,4).toUpperCase()}`,
           room,active:false,resolution:"",fps:"",audio:false
         });
-        emitCameraList(room);
       }
+      emitCameraList(room);
     });
     socket.on("request-camera",({cameraId})=>{
       const c=io.sockets.sockets.get(cameraId);
